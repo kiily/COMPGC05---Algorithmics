@@ -1,21 +1,23 @@
-package udemy_tutorial; 
+package udemy_tutorial;
+
+
 
 public class StackTester {
 
 	public static void main(String[] args) throws Exception {
 		
-		Stack theStack = new Stack(4);
-		
-		theStack.push('a');
-		theStack.push('b');
-		theStack.push('c');
-		theStack.push('d');
-		
-		while(!theStack.isEmpty()){
-			long value = theStack.pop();
-			System.out.println(value);
-			//80 printed first (LIFO)
-		}
+//		Stack<Charset> theStack = new Stack<Charset>(4);
+//		
+//		theStack.push('a');
+//		theStack.push('b');
+//		theStack.push('c');
+//		theStack.push('d');
+//		
+//		while(!theStack.isEmpty()){
+//			long value = theStack.pop();
+//			System.out.println(value);
+//			//80 printed first (LIFO)
+//		}
 		
 		String word1 = "NINA FOZZARD";
 		String reversedWord1 = reverseWord(word1);
@@ -32,7 +34,7 @@ public class StackTester {
 		//max stack size
 		int stackSize = word.length();
 		
-		Stack letters = new Stack(stackSize);
+		Stack<Character> letters = new Stack<Character>(stackSize);
 		
 		for(int i =0; i<stackSize; i++){
 			char letter = word.charAt(i);

@@ -1,32 +1,33 @@
 package udemy_tutorial;
 
 
-public class Stack {
+public class Stack<E> {
 	
 	private int maxSize;
-	private char[] stackArray;
+	private E[] stackArray;
 	private int top; //index position of last item placed on top of the stack
 	
 	
+	@SuppressWarnings("unchecked")
 	public Stack(int size){
 		this.maxSize = size;
-		this.stackArray = new char[maxSize];
+		this.stackArray = (E[]) new Object[maxSize];
 		this.top = -1; //initialized tom -1 until further notice
 	}
 	
 	
-	public void push(char j) throws Exception{
+	public void push(E e) throws Exception{
 
 		if(isFull()){
 			System.out.println("Stack overflow");
 			throw new Exception();
 		}else{
 			top++;
-			stackArray[top] = j;
+			stackArray[top] = e;
 		}
 	}
 	
-	public char pop() throws Exception{
+	public E pop() throws Exception{
 		if(isEmpty()){
 			System.out.println("Stack underflow");
 			throw new Exception();
@@ -40,7 +41,7 @@ public class Stack {
 		}
 	}
 	
-	public char top(){
+	public E top(){
 		return stackArray[top];
 	}
 	

@@ -6,7 +6,9 @@ package lecture2;
  * This class is an implementation of the Queue using an Array as the
  * underlying data structure. The capacity is limited and therefore must be
  * specified in the constructor. Overflow can occur when the array becomes
- * full.
+ * full. Note that this implementation is using a circular array as the underlying 
+ * data structure.
+ * 
  */
 
 public class QueueArray<E> implements Queue<E> {
