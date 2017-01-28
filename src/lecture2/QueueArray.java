@@ -39,7 +39,7 @@ public class QueueArray<E> implements Queue<E> {
    */
   public QueueArray(int size) {
     @SuppressWarnings("unchecked")
-    E[] o = (E[]) new Object[50];
+    E[] o = (E[]) new Object[size];
     objectArray = o;
     queueHead = 0;
     queueTail = 0;
