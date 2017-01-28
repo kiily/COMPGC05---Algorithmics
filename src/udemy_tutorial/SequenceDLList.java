@@ -1,5 +1,7 @@
-package praktomat_task2;
+package udemy_tutorial;
 
+
+//THIS IS THE ORIGINAL UNMODIFIED CIRCULAR LINKED LIST BY JENS KRINKE 
 /**
  * Implementation of Sequence ADT.
  *
@@ -144,7 +146,6 @@ public class SequenceDLList<E> implements Sequence<E> {
       }
     }
   }
-  
 
   /**
    * Removes the item at the start of the sequence.
