@@ -17,16 +17,18 @@ public class DoublyLinkedListTest {
 		myList.deleteLast();//999999 should be deleted
 		
 			
-		myList.printList();
+		myList.printListForward();
 		
 		DoublyLinkedList<Integer> myList1 =  new DoublyLinkedList<Integer>();
 		myList1.insertFirst(new Integer(999999));
 		myList1.insertAt(new Integer(1010), 1);
-		myList1.insertAt(new Integer(1010), 2);
-		myList1.insertAt(new Integer(1010), 3);
-		myList1.insertAt(new Integer(999), 0);
+		myList1.insertAt(new Integer(10390), 2);
+		myList1.insertAt(new Integer(101033), 3);
+		myList1.insertAt(new Integer(999), 4);
+		myList1.deleteAt(4);
 		
-		myList1.printList();
+		myList1.printListForward();
+		myList1.printListReversed();
 	}
 
 }

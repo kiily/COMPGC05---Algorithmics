@@ -1,6 +1,6 @@
 package udemy_tutorial;
 
-import org.omg.CORBA.Current;
+
 
 public class DoublyLinkedList<E> {
 
@@ -27,7 +27,7 @@ public class DoublyLinkedList<E> {
 		}
 		
 		public void printNode(){
-			System.out.println(("{ "+data+" }"));
+			System.out.print(("{ "+data+" }"));
 		}
 		
 	}
@@ -81,13 +81,31 @@ public class DoublyLinkedList<E> {
 		
 	}
 	
-	public void printList(){
-
+	public void printListForward(){
+		
+		System.out.println();
+		
 		Node current = first;
 		while(current != null){
 			current.printNode();
 			
 			current = current.next;
+			
+		}
+		
+		System.out.println();
+	}
+	
+	public void printListReversed(){
+
+		System.out.println();
+		
+		
+		Node current = last;
+		while(current != null){
+			current.printNode();
+			
+			current = current.prev;
 			
 		}
 		
@@ -174,8 +192,15 @@ public class DoublyLinkedList<E> {
 			int currentPosition = 1;
 
 			while(currentPosition < index){
+				if(current.next == null){
+				throw new Exception("Index is out of range, next index: ["+(currentPosition)+"]");
+					
+				}
+				
 				current = current.next;
 				currentPosition++;
+				
+				
 			}
 
 
@@ -199,6 +224,70 @@ public class DoublyLinkedList<E> {
 		}
 		
 	}
+	
+	
+	public void deleteAt(int index) throws Exception{
+		//index needs to be valid
+		if(index < 0 ){
+			throw new Exception("Index is a positive integer");
+
+		}
+		
+		//if only 1 element in the list
+		if(first.next == null){
+			if(index ==0){
+			first =null;
+			last = null;
+			}else{
+				throw new Exception("Index does not exist");
+				
+			}
+		}
+		
+		else if(index == 0){
+			deleteFirst();
+		}
+		
+		//general case
+		else{
+			Node currentNode = first;
+			
+			int currentPosition =1;
+			
+			while(currentPosition < index){
+				
+				
+				currentNode = currentNode.next;
+				currentPosition++;
+				
+				if(currentNode.next == null){
+					throw new Exception("Index is out of range, last index: ["+(currentPosition -1)+"]");
+				}
+				
+			}
+			//if we are deleting the last element
+			if(currentNode.next == last){
+				deleteLast();
+				System.out.println("delete last");
+				
+			}else{
+			
+				System.out.println("current position: "+currentPosition);
+			//COMMON mistake, it is not about dereferencing the object that we want to delete
+			//in the sense that its references should point to null; rather we need to eliminate the 
+			//references from other nodes that point to this node
+			
+			currentNode.next = currentNode.next.next;
+			//remember that the next above moved to the position after the element we delete
+			currentNode.next.prev = currentNode;
+			
+			}
+		}
+		
+		
+	}
+	
+	
 	
 	
 }
